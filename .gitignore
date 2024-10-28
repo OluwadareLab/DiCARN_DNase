@@ -1,9 +1,11 @@
-/Data/
+
 /TAD Validations/
 /Models/
 /LOGS/
-/checkpoints/
+/checkpoints_all/
 /extras/
 /score_tracker/
-./Pretrained_Weights/
+/dicarn_project_data/
+/Data
+/Pretrained_Weights/
 *.log
