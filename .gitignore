@@ -7,4 +7,5 @@
 /dicarn_project_data/
 /Data
 /Pretrained_Weights/
+/.gitignore
 *.log
