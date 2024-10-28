@@ -152,3 +152,26 @@ The predictions are saved in `.npz` files that store NumPy arrays using specific
 To retrieve the predicted HR matrix, use the following line in a Python script:
 
 `hic_matrix = np.load("path/to/file.npz", allow_pickle=True)['dicarn']`
+
+## DNase-seq Data Processing
+The derivation of interaction frequency data using DNase-seq data is done using the `DNase_imputation.R` script. 
+
+### Directory Structure
+The example directory structure below ensures the script can locate each file at the expected paths for smooth execution. 
+
+```plaintext
+~/DNase_Data/HMEC/
+├── Src/
+│   ├── chr1/
+│   │   ├── chr1_10kb.RAWobserved
+│   │   ├── chr1_10kb.KRnorm
+│   │   └── chr1.bed
+│   ├── chr3/
+│   │   ├── chr3_10kb.RAWobserved
+│   │   ├── chr3_10kb.KRnorm
+│   │   └── chr3.bed
+│   └── (similar structure for each chromosome in `chromosomes`)
+└── exponential_linear_model_-0.4.Rdata
+```
+
+The output interaction frequency file in `.tsv` format can then be adopted for various use. A useful example as relating to the DiCARN-DNase project is converting the file to `.coo` format and running it through the Hi-C data preprocessing pipeline earlier discussed (Examples are made available in the `DNase` subdirectory of the `dicarn_project_data` availabe on our [Zenodo repository](https://zenodo.org/records/13999255). This data is then concatenated with the GM12878 data for traning our DiCARN-DNase per cell line. 
