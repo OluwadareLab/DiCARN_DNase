@@ -8,7 +8,7 @@ from tqdm import tqdm
 from math import log10
 import torch
 
-from Models.DC_orig_FrEndDL import Generator
+from Models.DiCARN_model import Generator
 
 from Utils.SSIM import ssim
 from Utils.GenomeDISCO import compute_reproducibility
@@ -76,7 +76,7 @@ def hicarn_predictor(model, hicarn_loader, ckpt_file, device, data_file):
 	
 	deepmodel.eval()
 	with torch.no_grad():
-		for batch in tqdm(hicarn_loader, desc='DC DNase Src HMEC R64...: '):
+		for batch in tqdm(hicarn_loader, desc='DiCARN Model Testing...: '):
 			lr, hr, inds = batch
 			batch_size = lr.size(0)
 			ind = f'{(inds[0][0]).item()}'

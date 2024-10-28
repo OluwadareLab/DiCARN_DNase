@@ -8,15 +8,12 @@ import torch.optim as optim
 from torch.utils.data import TensorDataset, DataLoader
 import os
 import torch.nn as nn
-# from Models.HiCARN_1 import Generator
-from Models.DC_orig_FrEndDL import Generator
-from Models.HiCARN_1_Loss import GeneratorLoss
+from Models.DiCARN_model import Generator
 from Utils.SSIM import ssim
 from math import log10
-from Arg_Parser import root_dir
 
-print("Training With MSE\n")
-# Additions for timing and memory measurement
+
+# Timing and memory measurement
 start_time = time.time()
 
 # Check if CUDA is available, and reset peak memory statistics
@@ -41,7 +38,7 @@ data_dir = os.path.join(root_dir, 'Data/R16_down/K562/data')
 dnase_dir = os.path.join(root_dir, 'Data/DNase/target/K562/data')  # Directory for DNase data
 ckpt_dir = 'checkpoints/R16'
 # out_dir: directory storing checkpoint files
-out_dir = os.path.join(ckpt_dir, 'DC_DNase_K562_orig_FrEndDL')
+out_dir = os.path.join(ckpt_dir, 'DiCARN_DNase_Target_K562')
 os.makedirs(out_dir, exist_ok=True)
 
 datestr = time.strftime('%m_%d_%H_%M')
@@ -52,12 +49,10 @@ chunk = 40
 stride = 40
 bound = 201
 pool = 'nonpool'
-name = 'DC_DNase_target_K562_orig_FrEndDL'
+name = 'DiCARN_DNase_Target_K562'
 
 num_epochs = 100
-# num_epochs = 1
 batch_size = 64
-# batch_size = 128
 
 # whether using GPU for training
 device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
@@ -103,10 +98,8 @@ valid_loader = DataLoader(valid_set, batch_size=batch_size, shuffle=False, drop_
 
 # load network
 netG = Generator(num_channels=64).to(device)
-# netG = Generator().to(device)
 
 # loss function
-# criterionG = GeneratorLoss().to(device)
 criterionG = nn.MSELoss()
 
 # optimizer
@@ -173,10 +166,7 @@ for epoch in range(1, num_epochs + 1):
             sr_out = sr
             hr_out = hr
 
-            # print("Original LR size: ", sr.size())
-            # print("Original HR size: ", hr.size())
-            # print("Derived SR: ", sr.size())
-            # exit()
+
             g_loss = criterionG(sr, hr)
 
             valid_result['g_loss'] += g_loss.item() * batch_size
@@ -184,7 +174,7 @@ for epoch in range(1, num_epochs + 1):
             batch_mse = ((sr - hr) ** 2).mean()
             batch_mae = (abs(sr - hr)).mean()
             valid_result['mse'] += batch_mse * batch_size
-            batch_ssim = ssim(sr[:, 0:1, :, :], hr[:, 0:1, :, :])  # Ensure single channel for SSIM
+            batch_ssim = ssim(sr[:, 0:1, :, :], hr[:, 0:1, :, :])  
             valid_result['ssims'] += batch_ssim * batch_size
             valid_result['psnr'] = 10 * log10(1 / (valid_result['mse'] / valid_result['nsamples']))
             valid_result['ssim'] = valid_result['ssims'] / valid_result['nsamples']
@@ -241,13 +231,13 @@ print("\n Checkpoint is saved to: ", out_dir)
 end_time = time.time()
 total_time = end_time - start_time
 
-# Convert total_time from seconds to hours, minutes, and seconds for printing
+# Convert total_time from seconds to hours, minutes, and seconds
 hours, rem = divmod(total_time, 3600)
 minutes, seconds = divmod(rem, 60)
 print("\nTotal training time: {:0>2}:{:0>2}:{:05.2f}".format(int(hours), int(minutes),seconds))
 
 # Recording and printing peak memory usage
 if torch.cuda.is_available():
-    peak_memory = torch.cuda.max_memory_allocated() / (1024 ** 2)  # Convert bytes to megabytes
+    peak_memory = torch.cuda.max_memory_allocated() / (1024 ** 2)  # Convert bytes to MB
     torch.cuda.synchronize()
     print(f"\n Peak GPU memory usage: {peak_memory:.2f} MB")
