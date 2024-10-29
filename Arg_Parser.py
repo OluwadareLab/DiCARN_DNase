@@ -3,7 +3,7 @@ import argparse
 
 # the Root directory for all raw and processed data
 # root_dir = 'Data/DNase/target/CH12-LX'  # Example of root directory name
-root_dir = 'Data/R64_down/NHEK' 
+root_dir = 'dicarn_project_data/Test/K562' # adjust accordingly
 
 res_map = {'5kb': 5_000, '10kb': 10_000, '25kb': 25_000, '50kb': 50_000, '100kb': 100_000, '250kb': 250_000,
            '500kb': 500_000, '1mb': 1_000_000}
