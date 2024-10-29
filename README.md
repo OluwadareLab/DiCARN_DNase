@@ -42,6 +42,10 @@ Below is a list of recommended dependency versions for running this project:
 - tqdm 4.64
 - Pandas 2.2
 
+- ## Modes of Running Software
+1. You can opt for a quick start using our already processed data. This is made available on [Zenodo](https://zenodo.org/records/14009742). 
+2. You can follow the data pre-processing outline below to manually pre-process your data.
+
 
 ## Data Pre-processing
 Access the GSE62525 GEO entry for Hi-C data from (Rao et al., 2014) [here](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE63525). In our work, we made use of the [GM12878](https://www.ncbi.nlm.nih.gov/geo/download/?acc=GSE63525&format=file&file=GSE63525%5FGM12878%5Fprimary%5Fintrachromosomal%5Fcontact%5Fmatrices%2Etar%2Egz) primary intrachromosomal, [K562](https://www.ncbi.nlm.nih.gov/geo/download/?acc=GSE63525&format=file&file=GSE63525%5FK562%5Fintrachromosomal%5Fcontact%5Fmatrices%2Etar%2Egz) intrachromosomal, [HMEC](https://ftp.ncbi.nlm.nih.gov/geo/series/GSE63nnn/GSE63525/suppl/GSE63525%5FHMEC%5Fintrachromosomal%5Fcontact%5Fmatrices.tar.gz) intrachromosomal, and [NHEK](https://ftp.ncbi.nlm.nih.gov/geo/series/GSE63nnn/GSE63525/suppl/GSE63525%5FNHEK%5Fintrachromosomal%5Fcontact%5Fmatrices.tar.gz) intrachromosomal matrices.
@@ -115,10 +119,6 @@ Note: To proceed with training, ensure that both training and validation files a
 ### Congratulations! Your datasets are now ready.
 
 
-## Our Processed Data
-For a quick start, we have made our processed data available on [Zenodo](https://zenodo.org/records/14009742). 
-
-
 ## Training
 To initiate training, run:
 `python DiCARN_Train.py`
@@ -174,4 +174,4 @@ The example directory structure below ensures the script can locate each file at
 └── exponential_linear_model_-0.4.Rdata
 ```
 
-The output interaction frequency file in `.tsv` format can then be adopted for various use. A useful example as relating to the DiCARN-DNase project is converting the file to `.coo` format and running it through the Hi-C data preprocessing pipeline earlier discussed (Examples are made available in the `DNase` subdirectory of the `dicarn_project_data` availabe on our [Zenodo repository](https://zenodo.org/records/14009742). This data is then concatenated with the GM12878 data for traning our DiCARN-DNase per cell line. 
+The output interaction frequency file in `.tsv` format can then be adopted for various uses. A useful example as relating to the DiCARN-DNase project is converting the file to `.coo` format and running it through the Hi-C data preprocessing pipeline earlier discussed (Examples are made available in the `DNase` subdirectory of the `dicarn_project_data` availabe on our [Zenodo repository](https://zenodo.org/records/14009742). This data is then concatenated with the GM12878 data for training our DiCARN-DNase per cell line. 
