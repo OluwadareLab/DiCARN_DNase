@@ -116,7 +116,7 @@ Note: To proceed with training, ensure that both training and validation files a
 
 
 ## Our Processed Data
-For a quick start, we have made our processed data available on [Zenodo](https://zenodo.org/records/13999255). 
+For a quick start, we have made our processed data available on [Zenodo](https://zenodo.org/records/14009742). 
 
 
 ## Training
@@ -174,4 +174,4 @@ The example directory structure below ensures the script can locate each file at
 └── exponential_linear_model_-0.4.Rdata
 ```
 
-The output interaction frequency file in `.tsv` format can then be adopted for various use. A useful example as relating to the DiCARN-DNase project is converting the file to `.coo` format and running it through the Hi-C data preprocessing pipeline earlier discussed (Examples are made available in the `DNase` subdirectory of the `dicarn_project_data` availabe on our [Zenodo repository](https://zenodo.org/records/13999255). This data is then concatenated with the GM12878 data for traning our DiCARN-DNase per cell line. 
+The output interaction frequency file in `.tsv` format can then be adopted for various use. A useful example as relating to the DiCARN-DNase project is converting the file to `.coo` format and running it through the Hi-C data preprocessing pipeline earlier discussed (Examples are made available in the `DNase` subdirectory of the `dicarn_project_data` availabe on our [Zenodo repository](https://zenodo.org/records/14009742). This data is then concatenated with the GM12878 data for traning our DiCARN-DNase per cell line. 
