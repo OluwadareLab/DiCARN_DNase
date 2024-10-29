@@ -43,7 +43,7 @@ Below is a list of recommended dependency versions for running this project:
 - Pandas 2.2
 
 ## Modes of Running Software
-1. You can opt for a quick start using our already processed data. This is made available on [Zenodo](https://zenodo.org/records/14009742). Subsequently, follow the steps under the "Prediction with Analysis" section to predict and analyze.
+1. You can opt for a quick start using our already processed data. This is made available on [Zenodo](https://zenodo.org/records/14009929). Subsequently, follow the steps under the "Prediction with Analysis" section to predict and analyze.
 2. You can follow the data pre-processing outline below to manually pre-process your data.
 
 
@@ -174,4 +174,4 @@ The example directory structure below ensures the script can locate each file at
 └── exponential_linear_model_-0.4.Rdata
 ```
 
-The output interaction frequency file in `.tsv` format can then be adopted for various uses. A useful example as relating to the DiCARN-DNase project is converting the file to `.coo` format and running it through the Hi-C data preprocessing pipeline earlier discussed (Examples are made available in the `DNase` subdirectory of the `dicarn_project_data` availabe on our [Zenodo repository](https://zenodo.org/records/14009742). This data is then concatenated with the GM12878 data for training our DiCARN-DNase per cell line. 
+The output interaction frequency file in `.tsv` format can then be adopted for various uses. A useful example as relating to the DiCARN-DNase project is converting the file to `.coo` format and running it through the Hi-C data preprocessing pipeline earlier discussed (Examples are made available in the `DNase` subdirectory of the `dicarn_project_data` availabe on our [Zenodo repository](https://zenodo.org/records/14009929). This data is then concatenated with the GM12878 data for training our DiCARN-DNase per cell line. 
