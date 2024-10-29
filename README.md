@@ -25,7 +25,7 @@ Email: ooluwada@uccs.edu
 To ensure seamless explorations of DiCARN-DNase, this project is containarized on the Docker platform.
 Follow the steps below to install and build:
 1. Clone this repository using the git command provided: `git clone https://github.com/OluwadareLab/DiCARN_DNase.git && cd DiCARN_DNase`
-2. Pull the DiCARN-DNase docker image from the Docker Hub using the command `docker pull marblegee/dicarn_dnase:latest`. Verify the successful download of the image using the command `docker image ls`
+2. Pull the DiCARN-DNase docker image from the Docker Hub using the command `docker pull oluwadarelab/dicarn_dnase:latest`. Verify the successful download of the image using the command `docker image ls`
 3. Run an instance of the image while ensuring that the current working directory is mounted on the container. Try `docker run --rm -it --gpus all --name dicarn_dnase -v ${PWD}:${PWD} marblegee/dicarn_dnase`
 4. cd to your home directory.
 
