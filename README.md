@@ -43,7 +43,7 @@ Below is a list of recommended dependency versions for running this project:
 - Pandas 2.2
 
 ## Modes of Running Software
-1. You can opt for a quick start using our already processed data. This is made available on [Zenodo](https://zenodo.org/records/14009929). Subsequently, follow the steps under the "Prediction with Analysis" section to predict and analyze.
+1. You can opt for a quick start using our already processed data. This is made available on [Zenodo](https://zenodo.org/records/15198848). Subsequently, follow the steps under the "Prediction with Analysis" section to predict and analyze.
 2. You can follow the data pre-processing outline below to manually pre-process your data.
 
 
