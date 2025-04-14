@@ -174,4 +174,8 @@ The example directory structure below ensures the script can locate each file at
 └── exponential_linear_model_-0.4.Rdata
 ```
 
+### DNase-seq preprocessing exhibition
+Simply run the command below to preprocess the DNase-seq data:
+`Rscript DNase_imputation.R`
+
 The output interaction frequency file in `.tsv` format can then be adopted for various uses. A useful example as relating to the DiCARN-DNase project is converting the file to `.coo` format and running it through the Hi-C data preprocessing pipeline earlier discussed (Examples are made available in the `DNase` subdirectory of the `dicarn_project_data` availabe on our [Zenodo repository](https://zenodo.org/records/14009929). This data is then concatenated with the GM12878 data for training our DiCARN-DNase per cell line. 
