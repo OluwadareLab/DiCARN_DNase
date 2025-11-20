@@ -19,7 +19,7 @@ Department of Computer Science
 
 University of Colorado Colorado Springs
 
-Email: ooluwada@uccs.edu
+Email: oluwatosin.oluwadare@unt.edu
 
 ## Build Instructions:
 To ensure seamless explorations of DiCARN-DNase, this project is containarized on the Docker platform.
